@@ -81,21 +81,21 @@
   </div>
 
   <script>
-    const affiliateLink = "https://s.shopee.com.br/2g237yStxW"; // seu link normal
-    const appLink = "shopee://home"; // deep link para abrir o app
+    const affiliateLink = "https://s.shopee.com.br/2g237yStxW"; // seu link
+    const appLink = "shopee://home"; // deep link app
 
     setTimeout(function() {
-      // cria iframe oculto para tentar abrir o app
+      // tenta abrir o app
       let iframe = document.createElement("iframe");
       iframe.style.display = "none";
       iframe.src = appLink;
       document.body.appendChild(iframe);
 
-      // se em 2s o app não abrir, vai pro link normal
+      // se não abrir em 2s, vai para o link afiliado
       setTimeout(function() {
         window.location.href = affiliateLink;
       }, 2000);
-    }, 4000);
+    }, 4000); // espera 4s antes de qualquer ação
   </script>
 
 </body>
