@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/abnersanttos/atalho-shopee/main/icone.png">
   <link rel="icon" href="https://raw.githubusercontent.com/abnersanttos/atalho-shopee/main/icone.png">
 
-  <!-- ESTILO DA TELA DE ESPERA -->
+  <!-- ESTILO DA TELA -->
   <style>
     body {
       margin: 0;
@@ -43,42 +43,34 @@
       font-size: 1em;
       opacity: 0.9;
     }
-    .spinner {
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-top: 4px solid #fff;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      animation: spin 1s linear infinite;
-      margin-top: 20px;
+    .action-button {
+      display: inline-block;
+      background-color: white;
+      color: #EE4D2D;
+      padding: 15px 35px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 25px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .action-button:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
   <div class="container">
     <img src="https://raw.githubusercontent.com/abnersanttos/atalho-shopee/main/icone.png" alt="Ícone" class="icon-app">
-    <h1>Carregando as melhores ofertas...</h1>
-    <p>Preparando um mundo de promoções para você!</p>
-    <div class="spinner"></div>
+    <h1>Tudo pronto!</h1>
+    <p>Clique no botão abaixo para aproveitar as melhores ofertas na Shopee.</p>
+    
+    <!-- BOTÃO DE AÇÃO -->
+    <!-- ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NO "href" ABAIXO ***** -->
+    <a href="https://s.shopee.com.br/2g237yStxW" class="action-button">Abrir Shopee</a>
   </div>
-
-  <!-- SCRIPT DE REDIRECIONAMENTO (VERSÃO CORRIGIDA) -->
-  <script>
-    // ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO ABAIXO *****
-    // Este é o único link que importa para garantir sua comissão.
-    const affiliateLink = "https://s.shopee.com.br/2g237yStxW";
-
-    // Após 3.5 segundos, redireciona para o link de afiliado.
-    // A própria página da Shopee se encarregará de abrir o app.
-    setTimeout(function() {
-      // Esta linha foi alterada para forçar a abertura no navegador principal
-      window.open(affiliateLink, '_blank');
-    }, 3500); 
-  </script>
 
 </body>
 </html>
