@@ -75,7 +75,8 @@
     // Após 3.5 segundos, redireciona para o link de afiliado.
     // A própria página da Shopee se encarregará de abrir o app.
     setTimeout(function() {
-      window.location.href = affiliateLink;
+      // Esta linha foi alterada para forçar a abertura no navegador principal
+      window.open(affiliateLink, '_blank');
     }, 3500); 
   </script>
 
