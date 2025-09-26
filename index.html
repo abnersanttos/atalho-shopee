@@ -18,7 +18,7 @@
       height: 100%;
       overflow: hidden;
     }
-    .loading-screen {
+    .launch-button {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -29,12 +29,18 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: white;
       text-align: center;
+      text-decoration: none; /* Remove o sublinhado do link */
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .launch-button:hover {
+      background-color: #F05D40; /* Laranja mais claro ao passar o rato */
     }
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 30px; /* Espaçamento entre os elementos */
       padding: 20px;
     }
     .icon-app {
@@ -42,18 +48,24 @@
       height: 100px;
       border-radius: 22%;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      /* ANIMAÇÃO DE PULSAR ADICIONADA AQUI */
       animation: pulse 2s infinite ease-in-out;
     }
-    h1 {
-      font-size: 1.8em;
-      margin: 20px 0 5px 0;
+    .button-visual {
+      background-color: white;
+      color: #EE4D2D; /* Cor laranja da Shopee */
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.2em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-    p {
-      font-size: 1.1em;
-      opacity: 0.9;
-    }
-    .hidden-link {
-      display: none;
+    .call-to-action {
+      margin-top: -15px; /* Aproxima o texto do botão */
+      font-size: 0.9em;
+      font-weight: bold;
+      /* ANIMAÇÃO DE PISCAR ADICIONADA AQUI */
+      animation: fadeInOut 2.5s infinite;
     }
 
     /* KEYFRAMES PARA A ANIMAÇÃO DE PULSAR */
@@ -71,29 +83,24 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
       }
     }
+
+    /* KEYFRAMES PARA A ANIMAÇÃO DE PISCAR */
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
   </style>
 </head>
 <body>
-  <div class="loading-screen">
+  <!-- O ecrã inteiro é agora um único link clicável -->
+  <!-- ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NO "href" ABAIXO ***** -->
+  <a id="redirectLink" href="https://s.shopee.com.br/2g237yStxW" class="launch-button">
     <div class="container">
       <img src="https://raw.githubusercontent.com/abnersanttos/atalho-shopee/main/icone.png" alt="Ícone" class="icon-app">
-      <h1>A redirecionar para a Shopee...</h1>
-      <p>As melhores ofertas esperam por si!</p>
+      <div class="button-visual">Clique para ver as melhores ofertas</div>
+      <p class="call-to-action">Toque em qualquer lugar do ecrã</p>
     </div>
-  </div>
-
-  <!-- Link escondido que será "clicado" pelo script -->
-  <!-- ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NO "href" ABAIXO ***** -->
-  <a id="redirectLink" href="https://s.shopee.com.br/2g237yStxW" class="hidden-link">Redirect</a>
-
-  <!-- SCRIPT QUE SIMULA O CLIQUE -->
-  <script>
-    // Este evento espera que toda a página (incluindo imagens) seja carregada antes de executar.
-    window.onload = function() {
-      // Encontra o link escondido e simula um clique nele.
-      document.getElementById('redirectLink').click();
-    };
-  </script>
+  </a>
 
 </body>
 </html>
