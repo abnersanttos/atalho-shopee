@@ -73,11 +73,22 @@
   <!-- ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NO "href" ABAIXO ***** -->
   <a id="redirectLink" href="https://s.shopee.com.br/2g237yStxW" class="hidden-link">Redirect</a>
 
-  <!-- SCRIPT QUE SIMULA O CLIQUE APÓS A PÁGINA CARREGAR -->
+  <!-- SCRIPT QUE SIMULA O CLIQUE COM TEMPO ALEATÓRIO -->
   <script>
     // Este evento espera que toda a página (incluindo imagens) seja carregada antes de executar.
     window.onload = function() {
-      document.getElementById('redirectLink').click();
+      // Define o tempo de espera mínimo e máximo em milissegundos
+      // Por exemplo, entre 2 segundos (2000) e 5 segundos (5000)
+      const minDelay = 2000;
+      const maxDelay = 5000;
+
+      // Calcula um tempo de espera aleatório com casas decimais
+      const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
+
+      // Agenda o clique do botão para acontecer após o tempo aleatório
+      setTimeout(function() {
+        document.getElementById('redirectLink').click();
+      }, randomDelay);
     };
   </script>
 
