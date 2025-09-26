@@ -5,11 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ÍCONE DO ATALHO (SEU LINK CORRETO JÁ ESTÁ AQUI) -->
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/abnersanttos/atalho-shopee/main/icone.png">
   <link rel="icon" href="https://raw.githubusercontent.com/abnersanttos/atalho-shopee/main/icone.png">
 
-  <!-- ESTILO DA TELA -->
   <style>
     html, body {
       margin: 0;
@@ -25,7 +23,7 @@
       align-items: center;
       width: 100%;
       height: 100%;
-      background-color: #EE4D2D; /* Cor laranja da Shopee */
+      background-color: #EE4D2D;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: white;
       text-align: center;
@@ -42,7 +40,6 @@
       height: 100px;
       border-radius: 22%;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      /* ANIMAÇÃO DE PULSAR ADICIONADA AQUI */
       animation: pulse 2s infinite ease-in-out;
     }
     h1 {
@@ -62,24 +59,11 @@
       animation: spin 1s linear infinite;
       margin-top: 20px;
     }
-
-    /* KEYFRAMES PARA A ANIMAÇÃO DE PULSAR */
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      }
-      50% {
-        transform: scale(1.05);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
-
-    /* KEYFRAMES PARA A ANIMAÇÃO DE ROTAÇÃO */
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
@@ -96,19 +80,23 @@
     </div>
   </div>
 
-  <!-- SCRIPT QUE FAZ O REDIRECIONAMENTO APÓS 4 SEGUNDOS -->
   <script>
-    // ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NA LINHA ABAIXO *****
-    const affiliateLink = "https://s.shopee.com.br/2g237yStxW";
+    const affiliateLink = "https://s.shopee.com.br/2g237yStxW"; // seu link normal
+    const appLink = "shopee://home"; // deep link para abrir o app
 
-    // Espera 4 segundos (4000 ms) e então redireciona
     setTimeout(function() {
-      window.location.href = affiliateLink;
+      // cria iframe oculto para tentar abrir o app
+      let iframe = document.createElement("iframe");
+      iframe.style.display = "none";
+      iframe.src = appLink;
+      document.body.appendChild(iframe);
+
+      // se em 2s o app não abrir, vai pro link normal
+      setTimeout(function() {
+        window.location.href = affiliateLink;
+      }, 2000);
     }, 4000);
   </script>
 
 </body>
 </html>
-
-
-
