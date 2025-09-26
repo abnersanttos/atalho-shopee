@@ -86,12 +86,23 @@
     // ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NA LINHA ABAIXO *****
     const affiliateLink = "https://s.shopee.com.br/2g237yStxW";
 
-    // Espera 4 segundos para mostrar a tela de carregamento
-    setTimeout(function() {
-      // Tenta abrir o SEU LINK DE AFILIADO. É ele quem vai registrar a comissão
-      // e depois se encarregar de abrir o app.
-      window.location.href = affiliateLink;
-    }, 4000);
+    // Função para tentar o redirecionamento
+    function attemptRedirect() {
+      // Verifica se o site está a ser executado como um atalho no ecrã principal (PWA)
+      const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+      if (isInStandaloneMode) {
+        // Se estiver no modo de atalho, `window.open` tem mais hipóteses de funcionar
+        // abrindo no navegador principal em vez de dentro do atalho.
+        window.open(affiliateLink, '_blank');
+      } else {
+        // Se estiver num navegador normal, este método é suficiente.
+        window.location.href = affiliateLink;
+      }
+    }
+
+    // Espera 4 segundos (4000 ms) para mostrar o ecrã de carregamento e depois tenta redirecionar
+    setTimeout(attemptRedirect, 4000);
   </script>
 
 </body>
