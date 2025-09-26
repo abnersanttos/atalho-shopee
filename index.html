@@ -18,7 +18,7 @@
       height: 100%;
       overflow: hidden;
     }
-    .launch-button {
+    .loading-screen {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -29,12 +29,6 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: white;
       text-align: center;
-      text-decoration: none; /* Remove o sublinhado do link */
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-    .launch-button:hover {
-      background-color: #F05D40; /* Laranja mais claro ao passar o rato */
     }
     .container {
       display: flex;
@@ -48,7 +42,6 @@
       height: 100px;
       border-radius: 22%;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-      /* ANIMAÇÃO DE PULSAR ADICIONADA AQUI */
       animation: pulse 2s infinite ease-in-out;
     }
     h1 {
@@ -59,12 +52,8 @@
       font-size: 1.1em;
       opacity: 0.9;
     }
-    .call-to-action {
-      margin-top: 15px;
-      font-size: 0.9em;
-      font-weight: bold;
-      /* ANIMAÇÃO DE PISCAR ADICIONADA AQUI */
-      animation: fadeInOut 2.5s infinite;
+    .hidden-link {
+      display: none;
     }
 
     /* KEYFRAMES PARA A ANIMAÇÃO DE PULSAR */
@@ -82,26 +71,29 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
       }
     }
-
-    /* KEYFRAMES PARA A ANIMAÇÃO DE PISCAR */
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
   </style>
 </head>
 <body>
-  <!-- O ecrã inteiro é agora um único link clicável -->
-  <!-- ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NO "href" ABAIXO ***** -->
-  <a id="redirectLink" href="https://s.shopee.com.br/2g237yStxW" class="launch-button">
+  <div class="loading-screen">
     <div class="container">
       <img src="https://raw.githubusercontent.com/abnersanttos/atalho-shopee/main/icone.png" alt="Ícone" class="icon-app">
-      <h1>Toque para abrir a Shopee</h1>
+      <h1>A redirecionar para a Shopee...</h1>
       <p>As melhores ofertas esperam por si!</p>
-      <!-- TEXTO ANIMADO ADICIONADO AQUI -->
-      <p class="call-to-action">Toque em qualquer lugar do ecrã</p>
     </div>
-  </a>
+  </div>
+
+  <!-- Link escondido que será "clicado" pelo script -->
+  <!-- ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NO "href" ABAIXO ***** -->
+  <a id="redirectLink" href="https://s.shopee.com.br/2g237yStxW" class="hidden-link">Redirect</a>
+
+  <!-- SCRIPT QUE SIMULA O CLIQUE -->
+  <script>
+    // Este evento espera que toda a página (incluindo imagens) seja carregada antes de executar.
+    window.onload = function() {
+      // Encontra o link escondido e simula um clique nele.
+      document.getElementById('redirectLink').click();
+    };
+  </script>
 
 </body>
 </html>
