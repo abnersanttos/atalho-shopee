@@ -73,12 +73,10 @@
   <!-- ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NO "href" ABAIXO ***** -->
   <a id="redirectLink" href="https://s.shopee.com.br/2g237yStxW" class="hidden-link">Redirect</a>
 
-  <!-- SCRIPT QUE SIMULA O CLIQUE HUMANO -->
+  <!-- SCRIPT QUE SIMULA O CLIQUE HUMANO IMEDIATAMENTE -->
   <script>
-    // Após 1 segundo, o script vai simular um clique no link escondido.
-    setTimeout(function() {
-      document.getElementById('redirectLink').click();
-    }, 4000); 
+    // Assim que a página carrega, o script simula um clique no link escondido.
+    document.getElementById('redirectLink').click();
   </script>
 
 </body>
