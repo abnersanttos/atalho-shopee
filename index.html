@@ -66,24 +66,19 @@
     <div class="spinner"></div>
   </div>
 
-  <!-- SCRIPT DE REDIRECIONAMENTO (VERSÃO FINAL) -->
+  <!-- SCRIPT DE REDIRECIONAMENTO (VERSÃO CORRIGIDA) -->
   <script>
-    // Link direto para tentar abrir o app da Shopee
-    const appLink = "shopeebr://";
+    // ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO ABAIXO *****
+    // Este é o único link que importa para garantir sua comissão.
+    const affiliateLink = "https://s.shopee.com.br/2g237yStxW";
 
-    // LINK DE AFILIADO (PLANO B): Se a pessoa não tiver o app, ela irá para este site.
-    // ***** MUDE O LINK ABAIXO PARA O SEU LINK DE AFILIADO ATUALIZADO *****
-    const webLink = "https://amazing-cuchufli-2610aa.netlify.app/";
-
-    // Passo 1: Tenta abrir o APP da Shopee diretamente
-    window.location.href = appLink;
-
-    // Passo 2 (Plano B): Se o app não abrir em 2.5 segundos, o usuário ainda está nesta página.
-    // Nesse caso, o redirecionamos para o site.
+    // Após 1.5 segundos, redireciona para o link de afiliado.
+    // A própria página da Shopee se encarregará de abrir o app.
     setTimeout(function() {
-      window.location.href = webLink;
-    }, 2500); 
+      window.location.href = affiliateLink;
+    }, 1500); 
   </script>
 
 </body>
 </html>
+
