@@ -92,9 +92,9 @@
       const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 
       if (isInStandaloneMode) {
-        // Se estiver no modo de atalho, `window.open` tem mais hipóteses de funcionar
-        // abrindo no navegador principal em vez de dentro do atalho.
-        window.open(affiliateLink, '_blank');
+        // Se estiver no modo de atalho, `_self` tenta abrir na mesma janela,
+        // o que pode evitar o aviso de pop-up.
+        window.open(affiliateLink, '_self');
       } else {
         // Se estiver num navegador normal, este método é suficiente.
         window.location.href = affiliateLink;
