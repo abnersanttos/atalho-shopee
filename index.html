@@ -18,7 +18,7 @@
       height: 100%;
       overflow: hidden;
     }
-    .launch-button {
+    .loading-screen {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -29,18 +29,12 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: white;
       text-align: center;
-      text-decoration: none; /* Remove o sublinhado do link */
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-    .launch-button:hover {
-      background-color: #F05D40; /* Laranja mais claro ao passar o rato */
     }
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 30px; /* Espaçamento entre os elementos */
+      gap: 20px;
       padding: 20px;
     }
     .icon-app {
@@ -51,21 +45,22 @@
       /* ANIMAÇÃO DE PULSAR ADICIONADA AQUI */
       animation: pulse 2s infinite ease-in-out;
     }
-    .button-visual {
-      background-color: white;
-      color: #EE4D2D; /* Cor laranja da Shopee */
-      padding: 15px 30px;
-      border-radius: 50px;
-      font-weight: bold;
-      font-size: 1.2em;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    h1 {
+      font-size: 1.8em;
+      margin: 20px 0 5px 0;
     }
-    .call-to-action {
-      margin-top: -15px; /* Aproxima o texto do botão */
-      font-size: 0.9em;
-      font-weight: bold;
-      /* ANIMAÇÃO DE PISCAR ADICIONADA AQUI */
-      animation: fadeInOut 2.5s infinite;
+    p {
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+    .spinner {
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #fff;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin-top: 20px;
     }
 
     /* KEYFRAMES PARA A ANIMAÇÃO DE PULSAR */
@@ -84,24 +79,36 @@
       }
     }
 
-    /* KEYFRAMES PARA A ANIMAÇÃO DE PISCAR */
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
+    /* KEYFRAMES PARA A ANIMAÇÃO DE ROTAÇÃO */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
-  <!-- O ecrã inteiro é agora um único link clicável -->
-  <!-- ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NO "href" ABAIXO ***** -->
-  <a id="redirectLink" href="https://s.shopee.com.br/2g237yStxW" class="launch-button">
+  <div class="loading-screen">
     <div class="container">
       <img src="https://raw.githubusercontent.com/abnersanttos/atalho-shopee/main/icone.png" alt="Ícone" class="icon-app">
-      <div class="button-visual">Clique para ver as melhores ofertas</div>
-      <p class="call-to-action">Toque em qualquer lugar do ecrã</p>
+      <h1>A carregar as melhores ofertas...</h1>
+      <p>Aguarde um instante!</p>
+      <div class="spinner"></div>
     </div>
-  </a>
+  </div>
+
+  <!-- SCRIPT QUE FAZ O REDIRECIONAMENTO APÓS 4 SEGUNDOS -->
+  <script>
+    // ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NA LINHA ABAIXO *****
+    const affiliateLink = "https://s.shopee.com.br/2g237yStxW";
+
+    // Espera 4 segundos (4000 ms) e então redireciona
+    setTimeout(function() {
+      window.location.href = affiliateLink;
+    }, 4000);
+  </script>
 
 </body>
 </html>
+
+
 
