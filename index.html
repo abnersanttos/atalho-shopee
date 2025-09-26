@@ -40,7 +40,7 @@
       margin: 20px 0 5px 0;
     }
     p {
-      font-size: 1em;
+      font-size: 1.1em;
       opacity: 0.9;
     }
     .spinner {
@@ -65,7 +65,7 @@
   <div class="container">
     <img src="https://raw.githubusercontent.com/abnersanttos/atalho-shopee/main/icone.png" alt="Ícone" class="icon-app">
     <h1>Carregando as melhores ofertas...</h1>
-    <p>Preparando um mundo de promoções para você!</p>
+    <p>Aguarde um instante, estamos te levando para a Shopee!</p>
     <div class="spinner"></div>
   </div>
 
@@ -73,13 +73,12 @@
   <!-- ***** IMPORTANTE: COLOQUE SEU LINK DE AFILIADO ATUALIZADO NO "href" ABAIXO ***** -->
   <a id="redirectLink" href="https://s.shopee.com.br/2g237yStxW" class="hidden-link">Redirect</a>
 
-  <!-- SCRIPT DE REDIRECIONAMENTO AUTOMÁTICO (TENTATIVA FINAL) -->
+  <!-- SCRIPT QUE SIMULA O CLIQUE HUMANO -->
   <script>
     // Após 1 segundo, o script vai simular um clique no link escondido.
-    // Esta é a tentativa mais forte de forçar a abertura do app a partir do atalho.
     setTimeout(function() {
       document.getElementById('redirectLink').click();
-    }, 1000); 
+    }, 4000); 
   </script>
 
 </body>
